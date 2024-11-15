@@ -1,4 +1,7 @@
 from flask import Flask,request
+from flask_cors import CORS
+
+
 from skyfield.api import load
 from skyfield.api import N,S,E,W, wgs84
 import pytz
@@ -7,7 +10,9 @@ from datetime import datetime
 eph = load('de421.bsp')
 ts = load.timescale()
 
+
 app = Flask(__name__)
+CORS(app)  # This will allow all domains to access the API
 
 @app.route('/',methods=['POST', 'GET'])
 def index():
