@@ -44,7 +44,7 @@ def index():
             
         
        return  {
-                'local time': T_local,
+                'local time (GMT + 5:30)': T_local,
                 'UTC time': T_UTC,
                 "JD": T_JD,
                 "Astronomical Bodies": dict(zip(Bodies,data))
