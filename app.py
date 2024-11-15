@@ -10,7 +10,7 @@ ts = load.timescale()
 app = Flask(__name__)
 
 @app.route('/',methods=['POST', 'GET'])
-def login():
+def home():
     
        if(request.method == 'POST'):
             tz = pytz.timezone('Asia/Kolkata')
@@ -41,14 +41,15 @@ def login():
 
             data = [dict(zip(parameters,i + j[:1] + k)) for i,j,k in zip(radec,hadec,altaz)]
 
-
+            return T.local
             
         
-            return  {
-                'local time': T_local,
-                'UTC time': T_UTC,
-                "JD": T_JD,
-                "Astronomical Bodies": dict(zip(Bodies,data))
-            }
+            # return  {
+            #     'local time': T_local,
+            #     'UTC time': T_UTC,
+            #     "JD": T_JD,
+            #     "Astronomical Bodies": dict(zip(Bodies,data))
+            # }
     # the code below is executed if the request method
     # was GET or the credentials were invalid
+
